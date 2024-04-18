@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/formulario.css">
+    <link rel="shortcut icon" href="../favicon/favicon-32x32.png" type="image/x-icon">
+    <title>Registro</title>
+</head>
+
+<body>
+    <form id="registroForm">
+        <h1>Registro</h1>
+        <input type="text" placeholder="ingresa tu nombre" required id="name">
+        <input type="email" id="email" placeholder="ingresa tu correo electronico" required>
+        <input type="password" id="password" placeholder="ingresa tu contraseña" required>
+        <input type="password" id="passwordconfirm" placeholder="verifica tu contraseña" required>
+        <input type="number" id="phone" placeholder="telefono" required>
+        <input type="number" id="age" name="edad" min="0" max="120" placeholder="ingresa tu edad" required>
+        <button type="submit" class="button">Ingresar</button>
+        <a href="./index.html">¿Ya tienes una cuenta?</a>
+    </form>
+    <!-- <script src="./js/registro.js"></script> -->
+</body>
+
+</html>
+
+<script>
+    document.getElementById('registroForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // datos TODO si los datos no se prueban de manera individual magicamente no va a funcionar el fetch
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const passwordconfirm = document.getElementById('passwordconfirm').value;
+        const phone = document.getElementById('phone').value;
+        const age = document.getElementById('age').value;
+
+
+        fetch('http://localhost:3000/registro', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email, password, phone, age })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error al registrar:', error);
+                alert('Error al registrar. Intente de nuevo.');
+            });
+    });
+</script>

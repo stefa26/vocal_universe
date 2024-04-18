@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/formulario.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon/favicon-32x32.png" type="image/x-icon">
+    <title>Login</title>
+</head>
+<body class="body-login">
+    
+    <form action="">
+        <h1>INICIA SESIÓN</h1>
+        <input type="email" id="email" placeholder="ingresa tu  correo electronico" required disabled>
+        <input type="password" id="password" placeholder="ingresa tu contraseña" required disabled>
+        <button class="button">Ingresar</button><a href="./register.html">No tengo una cuenta</a>
+    </form>
+
+    <script>
+        fetch('./login.json')
+            .then(res => res.json())
+            .then(function (respuesta) {
+               console.log(respuesta);
+               document.getElementById('email').value = respuesta.email
+               document.getElementById('password').value = respuesta.pass
+            });
+    </script>
+</body>
+</html>
