@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/formulario.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon/favicon-32x32.png" type="image/x-icon">
+    <title>Login</title>
+</head>
+<body class="body-login">
+    
+    <form  action="/login" method="POST" id="loginForm">
+        <h1>INICIA SESIÓN</h1>
+        <input type="email" id="email" placeholder="ingresa tu  correo electronico" required>
+        <input type="password" id="password" placeholder="ingresa tu contraseña" required >
+        <button class="button" type="submit">Ingresar</button><a href="./registro.html">No tengo una cuenta</a>
+
+    </form>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+        
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+        
+            fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (email === "admin_vocal*@vocaluniverse.com" && password === "AdminVocalUniverse12*") {
+                    window.location.href = './views/admin/index.html';
+                } else if (data.success) {
+                    window.location.href = './views/user/principal.html';
+                } else {
+                    alert('Credenciales inválidas');
+                }
+            })
+            .catch(error => {
+                console.error('Error al procesar la solicitud:', error.message);
+                alert('Error al iniciar sesión. Intente de nuevo.');
+            });
+        });
+    </script>
+        
+</body>
+</html>

@@ -1,0 +1,233 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-btn: ;
+    --color-w: #fff;
+    --color-main: #094a88;
+    --color-transparente: #094b8861;
+    --color-trans-br: #094a88;
+    --transparente: transparent;
+}
+html::-webkit-scrollbar{
+    width: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.logo img {
+    width: 10vw;
+}
+
+/* Estilos de la barra de navegación */
+.navbar {
+    width: 100%;
+    height: 13vh;
+    background-color: var(--color-main);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: var(--color-transparente);
+}
+
+/* Estilos de la barra lateral */
+
+
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #FFF;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: .75rem;
+}
+
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
+}
+
+
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    top: 0;
+    left: 70px;
+    background: rgb(9, 74, 136);
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+}
+
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+}
+
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+
+.nav-cursos{
+    height: 15.22vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    ul{
+        display: flex;
+        li{
+            padding: .625rem 1.625rem;
+            text-align: left;
+            border-left: 7px solid var();
+            list-style: none;
+            transition: 500ms ease-in-out;
+            color: var(--color-main);
+            a{
+              color: inherit;  
+              font-weight: 700;
+            }
+            &:hover{
+                background-color: var(--color-transparente);
+                border-left: 7px solid var(--color-trans-br);
+                transition: 100ms ease-in-out;
+                color: var(--color-w);
+            }
+        }
+        
+    }
+}
+
+
+.flex-blox{
+    display: flex;
+    .flex-text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2vh 0vh;
+        width: 50%;
+        h1,p{
+            margin: 0 4vh;
+        }
+        p{
+            font-size: 2vh;
+        }
+        .link{
+            animation: action 15s infinite normal;
+            padding: .7rem 1.7rem;
+            border-radius: 2vh;
+            font-size: 1.7vh;
+            font-weight: 700;
+        }
+    }
+    .flex-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            max-width: 90%;
+        }
+    }
+}
+
+@keyframes action {
+    0%{
+        background-color: var(--color-main);
+        color: var(--color-w);
+    }
+    25%{
+        background-color: transparent;
+        color: initial;
+    }
+    50%{
+        background-color: var(--color-main);
+        color: var(--color-w);
+    }
+    75%{
+        background-color: transparent;
+        color: initial;
+    }
+}
+
+
+
+/* Estilos del footer */
+.footer {
+    background-color: #1c2331;
+    color: #fff;
+    
+}
+
+.footer a {
+    color: #fff;
+}
+
+/* Estilos de las columnas del footer */
+.footer .col-md-3 {
+    text-align: left;
+}
+
+/* Estilos de los íconos en el footer */
+.footer .fas {
+    margin-right: 10px;
+}
+
+/* Estilos del párrafo en el footer */
+.footer p {
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos del enlace en el footer */
+.footer a {
+    text-decoration: none;
+}
+
+/* Estilos del elemento hr en el footer */
+.footer hr {
+    margin: 0;
+}
+
+/* Estilos del párrafo de copyright en el footer */
+.footer .p-3 {
+    background-color: rgba(0, 0, 0, 0.2);
+}
